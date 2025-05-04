@@ -2,6 +2,7 @@ function lookupfilter(executioncontext){
 
     var formContext = executioncontext.getFormContext();
     console.log(formContext);
+    console.log("Rohit is in Island");
     // var producttext = formContext.getAttribute("crf5a_producttest").getValue();
     // var produttestid = producttext[0].id; 
     // console.log(producttext);
