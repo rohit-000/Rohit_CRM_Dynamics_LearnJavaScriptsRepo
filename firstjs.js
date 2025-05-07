@@ -1,20 +1,19 @@
-function lookupfilter(executioncontext){
+function lookupfilter(executioncontext) {
 
     var formContext = executioncontext.getFormContext();
-    console.log(formContext);
-    console.log("Rohit is in Island");
-    // var producttext = formContext.getAttribute("crf5a_producttest").getValue();
-    // var produttestid = producttext[0].id; 
-    // console.log(producttext);
-    // //addingfilter(produttestid)
-    // formContext.getControl('crf5a_producttest').addPreSearch(addingfilter(produttestid))
-    
-    // function addingfilter(produttestid)
-    // {
-    //     var query = "<filter type='and'>   <condition attribute='statecode' operator='eq' value='0' />   <condition attribute='crf5a_account' operator='eq' uiname='Fourth Coffee'     uitype='account' value='"+produttestid+"' /> </filter>";
-    //     console.log(query);
-    //     formContext.getControl('crf5a_producttest').addCustomFilter(query,"crf5a_producttest");
-    // }
-
-} 
+    var confirmStrings = { text: "This is a confirmation.", title: "Confirmation Dialog" };
+    var confirmOptions = { height: 200, width: 450 };
+    console.log(formContext.data.entity);
+    var guidstring = formContext.data.entity._entityId.guid;
+    console.log(guidstring);
+    if (guidstring != "00000000-0000-0000-0000-000000000000") {
+        Xrm.Navigation.openConfirmDialog(confirmStrings, confirmOptions).then(
+            function (success) {
+                if (success.confirmed)
+                    console.log("Dialog closed using OK button.");
+                else
+                    console.log("Dialog closed using Cancel button or X.");
+            });
+    }
+}
 
