@@ -1,5 +1,4 @@
-function lookupfilter(executioncontext) {
-
+function ConfirmDialogOnload(executioncontext) {
     var formContext = executioncontext.getFormContext();
     var confirmStrings = { text: "This is a confirmation.", title: "Confirmation Dialog" };
     var confirmOptions = { height: 200, width: 450 };
